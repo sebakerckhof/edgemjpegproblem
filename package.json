@@ -2,6 +2,10 @@
   "name": "mjpegtest",
   "description": "Mjpeg test",
   "version": "0.0.1",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "main": "server.js"
   "dependencies": {
     "express": "*"
   }
