@@ -1,5 +1,5 @@
 {
-  "name": "mjpeg test",
+  "name": "mjpegtest",
   "description": "Mjpeg test",
   "version": "0.0.1",
   "dependencies": {
