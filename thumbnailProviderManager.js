@@ -7,7 +7,8 @@ var app = express();
 var ThumbnailProvider = require('./thumbnailProvider').ThumbnailProvider;
 
 var ThumbnailProviderManager = exports.ThumbnailProviderManager = function () {
-    this._listenPort = 8081;
+    this._listenPort = process.env.OPENSHIFT_NODEJS_PORT || 8081;
+    this._listenIP = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
     this._thumbnailProviderList = [];
 
     console.log("New ThumbnailProviderManager created.");
@@ -52,6 +53,6 @@ ThumbnailProviderManager.prototype.updateSourceThumbnail = function (path, data)
 }
 
 ThumbnailProviderManager.prototype.startListening = function () {
-    app.listen(this._listenPort);
+    app.listen(this._listenPort,this._listenIP);
     app.use(express.static('client'));
 };
